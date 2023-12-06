@@ -12,7 +12,6 @@ const Container = styled(Flex, {
     borderRadius: "lg",
     overflow: "hidden",
     height: { md: "88vh", sm: "auto", base: "auto" },
-    maxH: "90vh",
     boxShadow: "lg",
     flexDirection: {
       md: "row",
