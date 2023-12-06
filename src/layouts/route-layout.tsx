@@ -18,7 +18,6 @@ export const RouteLayout = ({ children, ...rest }: FlexProps) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <Flex
-          maxHeight="100vh"
           overflow="hidden"
           display="flex"
           flexDirection="column"

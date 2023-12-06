@@ -18,7 +18,7 @@ export const Hero = ({ data, ...rest }: IHeroProps) => {
   return (
     <el.Container {...rest}>
       <el.TextContainer>
-        <Typography type="h1">{data.heading}</Typography>
+        <Typography type="h1" mb="1vw">{data.heading}</Typography>
         <Typography type="p">{data.bodyText}</Typography>
       </el.TextContainer>
       <el.Photo src={createSanityImageUrl(data.mainImage).url()} />
