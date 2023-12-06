@@ -1,14 +1,14 @@
 import { useQuery } from "react-query";
 import { getNavigation } from "@/utils/sanity/get-navigation";
 
-type SiteSettingsType = [
+export type SiteSettingsType = [
   {
     mainNav: {
       items: [
         {
           text: string;
           _key: string;
-          navigationItemUrl: { internalLink: { slug: {current: string} } };
+          navigationItemUrl: { internalLink: { slug: { current: string } } };
         },
       ];
     };
@@ -21,6 +21,9 @@ export const useNavigationData = () => {
     getNavigation,
     {
       keepPreviousData: true,
+      refetchInterval: false,
+      cacheTime: Infinity,
+      staleTime: Infinity
     }
   );
 

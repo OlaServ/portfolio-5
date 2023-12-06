@@ -9,10 +9,11 @@ interface INavLinkProps extends TextProps {
 export const NavLink = ({ slug, text, ...rest }: INavLinkProps) => {
   const pathname = usePathname();
 
-  const isActive = pathname === slug;
+  const isRouteActive = slug === "/" ? pathname === slug : pathname.includes(slug);
+
   return (
-    <el.NextLink href={slug} bg={isActive ? "teal.500" : "white"} {...rest}>
-      <el.LinkText color={isActive ? "white" : "gray.900"}>{text}</el.LinkText>
+    <el.NextLink href={slug} bg={isRouteActive ? "teal.500" : "white"} {...rest}>
+      <el.LinkText color={isRouteActive ? "white" : "gray.900"}>{text}</el.LinkText>
     </el.NextLink>
   );
 };

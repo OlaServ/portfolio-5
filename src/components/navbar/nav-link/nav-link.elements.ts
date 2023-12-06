@@ -1,4 +1,5 @@
-import { chakra, styled, Text, Link } from "@chakra-ui/react";
+import { chakra, styled, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
 const NextLink = styled(Link, {
   baseStyle: {

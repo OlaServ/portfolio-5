@@ -25,6 +25,8 @@ export const Navbar = () => {
 
   const { status, data } = useNavigationData();
 
+  useEffect(() => console.log(status,data), [status, data])
+
   if (!data) {
     return <Spinner size="lg" justifySelf="center" />;
   }
