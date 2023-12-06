@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getNavigation } from "@/utils/sanity/get-navigation";
+import { getNavigation } from "@/utils/sanity/queries/get-navigation";
 
 export type SiteSettingsType = [
   {

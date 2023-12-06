@@ -1,4 +1,4 @@
-import { client } from "./client";
+import { client } from "../client";
 
 export async function getNavigation() {
     const siteConfig = await client.fetch(

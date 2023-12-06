@@ -17,22 +17,29 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        style={{
-          maxHeight: "100vh",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <QueryClientProvider client={queryClient}>
-          <ThemeProvider>
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        </QueryClientProvider>
+      <body>
+        {!location.pathname.includes("admin") ? (
+          <div
+            style={{
+              maxHeight: "100vh",
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {" "}
+            <QueryClientProvider client={queryClient}>
+              <ThemeProvider>
+                <Navbar />
+                {children}
+              </ThemeProvider>
+            </QueryClientProvider>
+          </div>
+        ) : (
+          children
+        )}
       </body>
     </html>
   );

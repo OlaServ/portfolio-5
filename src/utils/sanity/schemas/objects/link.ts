@@ -8,7 +8,7 @@ export default {
       name: 'internalLink',
       description: 'Select pages for navigation',
       type: 'reference',
-      to: [{ type: 'page' }], 
+      to: [{ type: 'page' }, {type: "homepage"}], 
       },
       {
         name: 'externalUrl',
