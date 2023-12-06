@@ -23,15 +23,15 @@ export const Navbar = () => {
   const toggleMobileMenu = () =>
     isMobileMenuOpen ? setIsMobileMenuOpen(false) : setIsMobileMenuOpen(true);
 
-  const { status, data } = useNavigationData();
+  const { data } = useNavigationData();
 
-  useEffect(() => console.log(status,data), [status, data])
+  // todo: add error handling
 
   if (!data) {
     return <Spinner size="lg" justifySelf="center" />;
   }
 
-  if (breakpoint === "sm" || breakpoint === "base" && data) {
+  if (breakpoint === "sm" || (breakpoint === "base" && data)) {
     return (
       <el.MobileContainer>
         <el.NavButton onClick={toggleMobileMenu}>
@@ -43,15 +43,15 @@ export const Navbar = () => {
           startingHeight={0}
         >
           <el.InnerMobileNav>
-          {data[0].mainNav.items.map((item) => {
-        return (
-          <NavLink
-            text={item.text}
-            slug={item.navigationItemUrl.internalLink.slug.current}
-            key={`${item.navigationItemUrl.internalLink.slug.current}-mobile`}
-          />
-        );
-      })}
+            {data[0].mainNav.items.map((item) => {
+              return (
+                <NavLink
+                  text={item.text}
+                  slug={item.navigationItemUrl.internalLink.slug.current}
+                  key={`${item.navigationItemUrl.internalLink.slug.current}-mobile`}
+                />
+              );
+            })}
           </el.InnerMobileNav>
         </Collapse>
       </el.MobileContainer>
