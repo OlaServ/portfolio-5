@@ -22,8 +22,6 @@ export const useNavigationData = () => {
     {
       keepPreviousData: true,
       refetchInterval: false,
-      cacheTime: Infinity,
-      staleTime: Infinity
     }
   );
 

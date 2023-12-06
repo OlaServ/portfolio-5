@@ -3,16 +3,16 @@ import { Flex, Image, Box, styled } from "@chakra-ui/react";
 const Container = styled(Flex, {
   baseStyle: {
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: {md: "space-between", sm: "flex-start", base: "flex-start"},
     margin: "1vw",
     mt: "0",
-    w: "100vw",
+    w: {md: "95vw", sm: "95vw", base: "95vw"},
     border: "1px solid",
     borderColor: "gray.100",
     borderRadius: "lg",
     overflow: "hidden",
-    height: { md: "88vh", sm: "auto", base: "auto" },
-    boxShadow: "lg",
+    height: { md: "88vh", sm: "90vh", base: "90h" },
+       boxShadow: "lg",
     flexDirection: {
       md: "row",
       sm: "column",

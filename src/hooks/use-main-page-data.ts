@@ -11,8 +11,6 @@ export const useMainPageData = () => {
     {
       keepPreviousData: true,
       refetchInterval: false,
-      cacheTime: Infinity,
-      staleTime: Infinity,
     }
   );
 
