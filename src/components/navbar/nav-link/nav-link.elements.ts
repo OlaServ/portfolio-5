@@ -13,12 +13,18 @@ const NextLink = styled(Link, {
 
 const LinkText = styled(Text, {
   baseStyle: {
-    p: "10px 20px",
-    borderRadius: "sm",
+    p: "5px 10px",
+    fontsize: "14px",
+    lineHeight: "20px",
+    my: {sm: "12px", base: "12px"},
     textTransform: "uppercase",
     fontSize: "sm",
     fontWeight: "bold",
     letterSpacing: "1px",
+    color: "white",
+    _hover: {
+      color: "primary.green",
+    },
   },
 });
 

@@ -4,6 +4,9 @@ import { FlexProps, Flex } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import ThemeProvider from "@/app/theme-provider";
 import { Navigation } from "@/modules/navigation/navigation";
+import { Manrope } from "next/font/google";
+
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const RouteLayout = ({ children, ...rest }: FlexProps) => {
   const pathname = usePathname();
@@ -14,11 +17,13 @@ export const RouteLayout = ({ children, ...rest }: FlexProps) => {
   return (
     <ThemeProvider>
       <Flex
-        overflow="hidden"
+        minH="100vh"
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
+        className={manrope.className}
+        background="secondary.blackSoft"
         {...rest}
       >
         <Navigation />
