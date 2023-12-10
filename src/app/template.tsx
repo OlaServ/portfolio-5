@@ -12,19 +12,19 @@ export const RouteLayout = ({ children, ...rest }: FlexProps) => {
   }
 
   return (
-      <ThemeProvider>
-        <Flex
-          overflow="hidden"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          {...rest}
-        >
-          <Navigation />
-          {children}
-        </Flex>
-      </ThemeProvider>
+    <ThemeProvider>
+      <Flex
+        overflow="hidden"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        {...rest}
+      >
+        <Navigation />
+        {children}
+      </Flex>
+    </ThemeProvider>
   );
 };
 
