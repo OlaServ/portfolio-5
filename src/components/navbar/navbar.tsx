@@ -34,7 +34,18 @@ export const Navbar = () => {
   if (breakpoint === "sm" || (breakpoint === "base" && data)) {
     return (
       <el.MobileContainer>
-        <el.NavButton onClick={toggleMobileMenu}>
+        <el.NavButton
+          onClick={toggleMobileMenu}
+          background={isMobileMenuOpen ? "teal.300" : "teal.500"}
+          _focus={{
+            background: isMobileMenuOpen ? "teal.300" : "teal.500",
+          }}
+          _active={{
+            background: isMobileMenuOpen ? "teal.300" : "teal.500",
+          }}
+          transform={isMobileMenuOpen ? "rotate3d(1, 1, 1, 360deg)": "none"}
+          
+        >
           {isMobileMenuOpen ? <RiCloseLine /> : <RxHamburgerMenu />}
         </el.NavButton>
         <Collapse

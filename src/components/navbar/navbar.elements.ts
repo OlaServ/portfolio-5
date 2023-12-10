@@ -32,11 +32,11 @@ const LinkText = styled(Text, {
 const NavButton = styled(Button, {
   baseStyle: {
     m: "1vh",
-    background: "teal.500",
+    borderRadius: "full",
+    transition: "all 0.3s ease-in-out",
+    p: "0",
     color: "white",
-    _hover: {
-      background: "teal.400",
-    },
+    WebkitTapHighlightColor: "transparent",
   },
 });
 

@@ -32,3 +32,5 @@ export const RouteLayout = ({ children, ...rest }: FlexProps) => {
     </QueryClientProvider>
   );
 };
+
+export default RouteLayout;
