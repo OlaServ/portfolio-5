@@ -2,36 +2,31 @@
 import {
   FlexProps,
   useBreakpoint,
-  ScaleFade,
   Collapse,
-  Spinner,
+
 } from "@chakra-ui/react";
 import { NavbarElements as el } from "./navbar.elements";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { NavLink } from "./nav-link/nav-link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RiCloseLine } from "react-icons/ri";
-import { useNavigationData } from "@/hooks/use-navigation-data";
+import { NavigationType } from "@/domain/navigation";
 
-interface INavbarProps extends FlexProps {}
+interface INavbarProps extends FlexProps {
+  data: NavigationType
+}
 
-export const Navbar = () => {
+export const Navbar = ({data} : INavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const breakpoint = useBreakpoint();
 
   const toggleMobileMenu = () =>
     isMobileMenuOpen ? setIsMobileMenuOpen(false) : setIsMobileMenuOpen(true);
 
-  const { data } = useNavigationData();
-
   // todo: add error handling
 
-  if (!data) {
-    return <Spinner size="lg" justifySelf="center" />;
-  }
 
-  if (breakpoint === "sm" || (breakpoint === "base" && data)) {
+  if (breakpoint === "sm" || (breakpoint === "base")) {
     return (
       <el.MobileContainer>
         <el.NavButton

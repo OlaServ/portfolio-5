@@ -2,9 +2,9 @@
 
 import { FlexProps, Flex } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
-import { Navbar } from "@/components/navbar/navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ThemeProvider from "@/app/theme-provider";
+import { Navigation } from "@/modules/navigation/navigation";
 
 export const RouteLayout = ({ children, ...rest }: FlexProps) => {
   const pathname = usePathname();
@@ -25,7 +25,7 @@ export const RouteLayout = ({ children, ...rest }: FlexProps) => {
           alignItems="center"
           {...rest}
         >
-          <Navbar />
+          <Navigation />
           {children}
         </Flex>
       </ThemeProvider>
