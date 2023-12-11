@@ -6,7 +6,7 @@ export default async function Home() {
 
   return (
     <main>
-{/*       <Hero data={data[0]} /> */}
+      <Hero data={data[0]} />
     </main>
   );
 }

@@ -25,10 +25,25 @@ export default {
       },
     },
     {
-      name: "heading",
-      title: "Heading",
+      name: "secondaryImage",
+      title: "Secondary image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: "headingLineOne",
+      title: "Heading - line 1",
       type: "string",
     },
+
+    {
+      name: "headingLineTwo",
+      title: "Heading - line 2",
+      type: "string",
+    },
+
     {
       name: "bodyText",
       title: "Body Text",
