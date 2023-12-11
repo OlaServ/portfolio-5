@@ -12,8 +12,8 @@ export const NavLink = ({ slug, text, ...rest }: INavLinkProps) => {
   const isRouteActive = slug === "/" ? pathname === slug : pathname.includes(slug);
 
   return (
-    <el.NextLink href={slug} bg={isRouteActive ? "teal.500" : "white"} {...rest}>
-      <el.LinkText color={isRouteActive ? "white" : "gray.900"}>{text}</el.LinkText>
+    <el.NextLink href={slug} {...rest}>
+      <el.LinkText>{text}</el.LinkText>
     </el.NextLink>
   );
 };

@@ -1,22 +1,12 @@
-"use client";
 import { Hero } from "@/components/hero/hero";
-import { useMainPageData } from "@/hooks/use-main-page-data";
-import { useEffect } from "react";
-import { Spinner, Center } from "@chakra-ui/react";
+import { getMainPage } from "@/utils/sanity/queries/get-main-page";
 
-export default function Home() {
-  const { data, status } = useMainPageData();
+export default async function Home() {
+  const data = await getMainPage();
 
-  useEffect(() => console.log(data), [data]);
   return (
     <main>
-      {data ? (
-        <Hero data={data[0]} />
-      ) : (
-        <Center w="100vw" h="80vh">
-          <Spinner size="xl" />
-        </Center>
-      )}
+{/*       <Hero data={data[0]} /> */}
     </main>
   );
 }
