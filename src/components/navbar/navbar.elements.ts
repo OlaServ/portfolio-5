@@ -7,13 +7,18 @@ const Container = styled(Flex, {
     top: "0",
     width: "100%",
     justifyContent: "flex-end",
-    alignItems: {lg: "center", md: "center", sm: "flex-end", base: "flex-end"},
+    alignItems: {
+      lg: "center",
+      md: "center",
+      sm: "flex-end",
+      base: "flex-end",
+    },
     zIndex: "1000",
     flexDirection: {
       lg: "row",
       md: "row",
       sm: "column-reverse",
-      base: "column-reverse"
+      base: "column-reverse",
     },
     p: {
       lg: "40px 80px",
@@ -55,83 +60,20 @@ const LinksContainer = styled(AnimatedBox, {
   baseStyle: {
     display: "flex",
     background: "rgba(50, 50, 53, 0.8)",
-    height: {lg: "70px", md: "70px", sm: "auto", base: "auto"},
-    borderRadius: {lg: "100px", md: "100px", sm: "40px", base: "40px"},
+    height: { lg: "70px", md: "70px", sm: "auto", base: "auto" },
+    borderRadius: { lg: "100px", md: "100px", sm: "40px", base: "40px" },
     justifyContent: "center",
     alignItems: "center",
-    mr: {lg: "20px", md: "20px", sm: "0", base: "0"},
-    mt: {lg: "0", md: "0", sm: "20px", base: "20px"},
-    p: {lg: "0 20px", md: "0 20px", sm: "20px", base: "20px"},
+    mr: { lg: "20px", md: "20px", sm: "0", base: "0" },
+    mt: { lg: "0", md: "0", sm: "20px", base: "20px" },
+    p: { lg: "0 20px", md: "0 20px", sm: "20px", base: "20px" },
     flexDirection: {
       lg: "row",
       md: "row",
       sm: "column-reverse",
-      base: "column-reverse"
-    }
+      base: "column-reverse",
+    },
   },
 });
 
 export const NavbarElements = { Container, MenuButton, Line, LinksContainer };
-
-/* const MobileContainer = styled(Flex, {
-  baseStyle: {
-    w: "100%",
-    justifyContent: "flex-end",
-    pos: "relative",
-  },
-});
-
-const Container = styled(Flex, {
-  baseStyle: {
-    justifyContent: "center",
-    alignItems: "center",
-    maxH: "10vh",
-  },
-});
-
-const LinkText = styled(Text, {
-  baseStyle: {
-    p: "10px 20px",
-    borderRadius: "sm",
-    color: "gray.900",
-    m: "1vw",
-    textTransform: "uppercase",
-    fontSize: "sm",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-  },
-});
-
-const NavButton = styled(Button, {
-  baseStyle: {
-    m: "1vh",
-    borderRadius: "full",
-    transition: "all 0.3s ease-in-out",
-    p: "0",
-    color: "white",
-    WebkitTapHighlightColor: "transparent",
-  },
-});
-
-const InnerMobileNav = styled(Flex, {
-  baseStyle: {
-    boxShadow: "lg",
-    borderRadius: "md",
-    background: "white",
-    width: "60%",
-    minWidth: "75vw",
-    height: "auto",
-    position: "absolute",
-    top: "100%",
-    right: "10%",
-    flexDirection: "column",
-  },
-});
-
-export const NavbarElements = {
-  MobileContainer,
-  Container,
-  LinkText,
-  NavButton,
-  InnerMobileNav,
-}; */
