@@ -1,20 +1,34 @@
 "use client";
-import { FlexProps, useBreakpoint, Collapse } from "@chakra-ui/react";
+import { FlexProps } from "@chakra-ui/react";
 import { NavbarElements as el } from "./navbar.elements";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "./nav-link/nav-link";
 import { AnimatePresence } from "framer-motion";
 import { NavigationType } from "@/domain/navigation";
+import useScroll from "@/hooks/useScroll";
 
 interface INavbarProps extends FlexProps {
   data: NavigationType;
 }
 
-export const Navbar = ({ data }: INavbarProps) => {
+export const Navbar = ({ data, ...rest }: INavbarProps) => {
+  const scroll = useScroll();
+  const [scrollY, setScrollY] = useState(scroll.y);
+  const [navbarPosition, setNavbarPosition] = useState("0px");
+
+  useEffect(() => {
+    if (scroll.y >= scrollY) {
+      setNavbarPosition("0px");
+    } else {
+      setNavbarPosition("20px");
+    }
+    setScrollY(scroll.y);
+  }, [scroll]);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleIsMenuOpen = () => {
-    isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   const getLineAnimation = (line: "top" | "bottom") => {
@@ -38,7 +52,7 @@ export const Navbar = ({ data }: INavbarProps) => {
   };
 
   return (
-    <el.Container>
+    <el.Container top={navbarPosition} {...rest}>
       <AnimatePresence>
         {isMenuOpen && (
           <el.LinksContainer

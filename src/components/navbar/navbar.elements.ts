@@ -3,8 +3,11 @@ import { AnimatedBox } from "../animated-box/animated-box";
 
 const Container = styled(Flex, {
   baseStyle: {
-    position: "absolute",
-    top: "0",
+    position: "fixed",
+    transition: "all 0.8s ease-in-out",
+    p: { md: "20px 80px", base: "16px" },
+    top: "20px",
+    left: "0",
     width: "100%",
     justifyContent: "flex-end",
     alignItems: {
@@ -19,12 +22,6 @@ const Container = styled(Flex, {
       md: "row",
       sm: "column-reverse",
       base: "column-reverse",
-    },
-    p: {
-      lg: "40px 80px",
-      md: "40px",
-      sm: "16px",
-      base: "16px",
     },
   },
 });

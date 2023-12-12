@@ -1,27 +1,53 @@
-"use client";
-import { HeroElements as el } from "./hero.elements";
-import { Typography } from "../typography/typography";
-import { FlexProps, Spinner } from "@chakra-ui/react";
-import { SanityImageAssetDocument } from "next-sanity";
-import { createSanityImageUrl } from "@/utils/sanity/image-builder";
-import { useEffect } from "react";
+'use client';
+import { HeroElements as el } from './hero.elements';
+import { FlexProps } from '@chakra-ui/react';
+import { SanityImageAssetDocument } from 'next-sanity';
+import { createSanityImageUrl } from '@/utils/sanity/image-builder';
 
 interface IHeroProps extends FlexProps {
-  data: {
-    heading: string;
-    bodyText: string;
-    mainImage: SanityImageAssetDocument;
-  };
+	data: {
+		headingLineOne: string;
+		headingLineTwo: string;
+		bodyText: string;
+		mainImage: SanityImageAssetDocument;
+		secondaryImage: SanityImageAssetDocument;
+    recommendationCardText: string;
+    recommendationCardButtonText: string;
+	};
 }
 
 export const Hero = ({ data, ...rest }: IHeroProps) => {
-  return (
-    <el.Container {...rest}>
-      <el.TextContainer>
-        <Typography type="h1" mb="1vw">{data.heading}</Typography>
-        <Typography type="p">{data.bodyText}</Typography>
-      </el.TextContainer>
-      <el.Photo src={createSanityImageUrl(data.mainImage).url()} />
-    </el.Container>
-  );
+	const {
+		headingLineOne,
+		headingLineTwo,
+		bodyText,
+		mainImage,
+		secondaryImage,
+    recommendationCardText,
+    recommendationCardButtonText,
+	} = data;
+	return (
+		<el.Container {...rest}>
+			<el.LeftColumn>
+				<el.TextContainer>
+					<el.HeadingOne type="h1">{headingLineOne}</el.HeadingOne>
+					<el.HeadingTwo type="h1">{headingLineTwo}</el.HeadingTwo>
+					<el.Body type="p">{bodyText}</el.Body>
+				</el.TextContainer>
+			</el.LeftColumn>
+			<el.RightColumn>
+				<el.MainPhoto
+					backgroundImage={`url(${createSanityImageUrl(mainImage).url()})`}
+				/>
+
+				<el.SecondaryPhoto src={createSanityImageUrl(secondaryImage).url()} />
+				<el.RecommendationsCard>
+					<el.RecommendationCardText>
+          {recommendationCardText}
+					</el.RecommendationCardText>
+					<el.RecommendationsButton>{recommendationCardButtonText}</el.RecommendationsButton>
+				</el.RecommendationsCard>
+			</el.RightColumn>
+		</el.Container>
+	);
 };
