@@ -8,6 +8,5 @@ export const getMainPage = async (): Promise<MainPageDataType> => {
   if (!res) {
     throw new Error("Failed to fetch data");
   }
-  
   return res;
 };

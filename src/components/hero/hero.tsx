@@ -1,6 +1,5 @@
 "use client";
 import { HeroElements as el } from "./hero.elements";
-import { Typography } from "../typography/typography";
 import { FlexProps } from "@chakra-ui/react";
 import { SanityImageAssetDocument } from "next-sanity";
 import { createSanityImageUrl } from "@/utils/sanity/image-builder";
@@ -16,14 +15,28 @@ interface IHeroProps extends FlexProps {
 }
 
 export const Hero = ({ data, ...rest }: IHeroProps) => {
+  const {
+    headingLineOne,
+    headingLineTwo,
+    bodyText,
+    mainImage,
+    secondaryImage,
+  } = data;
   return (
     <el.Container {...rest}>
-      <el.TextContainer>
-        <Typography type="h1" mb="1vw">{data.headingLineOne}</Typography>
-        <Typography type="h1" mb="1vw">{data.headingLineTwo}</Typography>
-        <Typography type="p">{data.bodyText}</Typography>
-      </el.TextContainer>
-      <el.Photo src={createSanityImageUrl(data.mainImage).url()} />
+      <el.LeftColumn>
+        <el.TextContainer>
+          <el.HeadingOne type="h1">{headingLineOne}</el.HeadingOne>
+          <el.HeadingTwo type="h1">{headingLineTwo}</el.HeadingTwo>
+          <el.Body type="p">{bodyText}</el.Body>
+        </el.TextContainer>
+      </el.LeftColumn>
+      <el.RightColumn>
+        <el.MainPhoto
+          backgroundImage={`url(${createSanityImageUrl(mainImage).url()})`}
+        />
+        <el.SecondaryPhoto src={createSanityImageUrl(secondaryImage).url()} />
+      </el.RightColumn>
     </el.Container>
   );
 };

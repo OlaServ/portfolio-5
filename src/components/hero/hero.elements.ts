@@ -1,28 +1,33 @@
-import { Flex, Image, Box, styled } from "@chakra-ui/react";
+import { Flex, Image, Box, Card, styled } from "@chakra-ui/react";
+import { Heading } from "../typography/heading/heading";
+import { BodyText } from "../typography/body-text/body-text";
 
 const Container = styled(Flex, {
   baseStyle: {
-    alignItems: "center",
-    justifyContent: {md: "space-between", sm: "flex-start", base: "flex-start"},
-    margin: "1vw",
+    minH: "110vh",
+    w: "100%",
+    pl: { md: "80px", sm: "40px", base: "16px" },
+    pr: "20px",
+    pt: "20px",
+
+    alignItems: "flex-start",
+    justifyContent: {
+      md: "space-between",
+      sm: "flex-start",
+      base: "flex-start",
+    },
     mt: "0",
-    w: {md: "95vw", sm: "95vw", base: "95vw"},
-    border: "1px solid",
-    borderColor: "gray.100",
-    borderRadius: "lg",
     overflow: "hidden",
-    height: { md: "88vh", sm: "90vh", base: "90h" },
-       boxShadow: "lg",
     flexDirection: {
       md: "row",
       sm: "column",
       base: "column",
     },
-    bgGradient: "linear(to-t, teal.50, white)",
+    background: "secondary.blackSoft",
   },
 });
 
-const TextContainer = styled(Flex, {
+const LeftColumn = styled(Flex, {
   baseStyle: {
     width: { md: "50%", sm: "100%", base: "100%" },
     height: { md: "100%", sm: "auto", base: "auto" },
@@ -32,17 +37,72 @@ const TextContainer = styled(Flex, {
   },
 });
 
-const Photo = styled(Image, {
+const TextContainer = styled(Flex, {
   baseStyle: {
-    width: { md: "50%", sm: "100%", base: "100%" },
-    height: { md: "100%", sm: "auto", base: "auto" },
-    objectFit: "cover",
-    clipPath: {
-      md: "polygon(0 0, 10% 100%, 100% 100%, 100% 0%, 100% 0)",
-      sm: "none",
-      base: "none",
-    },
+    width: "90%",
+    flexDirection: "column",
+    justifyContent: "center",
+    py: "160px",
   },
 });
 
-export const HeroElements = { Container, TextContainer, Photo };
+const HeadingOne = styled(Heading, {
+  baseStyle: {
+    color: "primary.green",
+  },
+});
+
+const HeadingTwo = styled(Heading, {
+  baseStyle: {
+    color: "white",
+    mb: "48px",
+  },
+});
+
+const RightColumn = styled(Box, {
+  baseStyle: {
+    width: { md: "50%", sm: "100%", base: "100%" },
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+});
+
+const MainPhoto = styled(Card, {
+  baseStyle: {
+    width: "auto",
+    height: "62vh",
+    backgroundPosition: "50% 20%",
+    backgroundSize: "cover",
+    borderRadius: "14px",
+    overflow: "hidden",
+    mb: "20px",
+  },
+});
+
+const SecondaryPhoto = styled(Image, {
+  baseStyle: {
+    height: "30vh",
+    borderRadius: "14px",
+    width: "50%",
+    objectFit: "cover",
+  },
+});
+
+const Body = styled(BodyText, {
+  baseStyle: {
+    color: "white",
+  },
+});
+
+export const HeroElements = {
+  Container,
+  TextContainer,
+  LeftColumn,
+  MainPhoto,
+  SecondaryPhoto,
+  HeadingOne,
+  HeadingTwo,
+  Body,
+  RightColumn,
+};

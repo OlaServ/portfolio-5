@@ -19,7 +19,7 @@ export default {
       name: 'frontpage',
       type: 'reference',
       description: 'Choose page to be the frontpage',
-      to: {type: 'page'},
+      to: {type: 'homepage'},
     },
     {
       title: 'Main navigation',
