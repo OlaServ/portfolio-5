@@ -6,5 +6,7 @@ export type MainPageDataType = [
     headingLineTwo: string;
     mainImage: SanityImageAssetDocument;
     secondaryImage: SanityImageAssetDocument;
+    recommendationCardText: string;
+    recommendationCardButtonText: string;
   },
 ];

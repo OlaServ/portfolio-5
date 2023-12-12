@@ -49,6 +49,18 @@ export default {
       title: "Body Text",
       type: "text",
     },
+
+    {
+      name: "recommendationCardText",
+      title: "Recommendation Card Text",
+      type: "string",
+    },
+
+    {
+      name: "recommendationCardButtonText",
+      title: "Recommendation Card Button Text",
+      type: "string",
+    },
   ],
 
   preview: {

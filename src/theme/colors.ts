@@ -10,6 +10,7 @@ export const colors = {
   secondary: {
     blackSoft: "#232325",
     blackWashed: "#323235",
+    blackText: "#151517",
   },
 
   quiz: {
