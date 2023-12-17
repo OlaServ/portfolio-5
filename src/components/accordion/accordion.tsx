@@ -1,20 +1,17 @@
 'use client';
 import {
-	AccordionButtonProps,
 	AccordionProps,
 	Accordion as ChakraAccordion,
 	useBreakpointValue,
 } from '@chakra-ui/react';
 import { AccordionElements as el } from './accordion.elements';
 import { Carousel } from '../carousel/carousel';
-import useScroll from '@/hooks/useScroll';
-import { useEffect, useRef, useState } from 'react';
 
 export interface IAccordionProps extends AccordionProps {
 	heading: string;
 	body: {
 		heading: string;
-		text: string;
+		listItems: string[];
 	};
 	imageUrls: string[];
 }
@@ -27,6 +24,14 @@ export const Accordion = ({
 }: IAccordionProps) => {
 	const expandAccordion = useBreakpointValue({ lg: true, base: false });
 	const mobileProps = !expandAccordion ? { index: 0 } : {};
+
+	const mapBodyMarkupToHtml = (listItems: string[]) => {
+		return listItems.map((listItem, index) => (
+			<el.BodyListItem key={`li-${listItem}-${index}`}>
+				{listItem}
+			</el.BodyListItem>
+		));
+	};
 
 	return (
 		<ChakraAccordion allowToggle {...mobileProps} {...rest}>
@@ -48,7 +53,7 @@ export const Accordion = ({
 					</el.Gallery>
 					<el.Body>
 						<el.BodyHeading>{body.heading}</el.BodyHeading>
-						<el.BodyText>{body.text}</el.BodyText>
+						<el.StyledList>{mapBodyMarkupToHtml(body.listItems)}</el.StyledList>
 					</el.Body>
 				</el.Panel>
 			</el.Item>

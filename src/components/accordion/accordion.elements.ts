@@ -7,6 +7,8 @@ import {
 	AccordionPanel,
 	Text,
 	Box,
+	ListItem,
+	List,
 } from '@chakra-ui/react';
 import { AnimatedBox } from '../animated-box/animated-box';
 
@@ -97,16 +99,28 @@ const BodyHeading = styled(Text, {
 		fontSize: '16px',
 		lineHeight: '1.5rem',
 		fontWeight: '200',
-		mb: "20px",
+		mb: '20px',
 	},
 });
 
-const BodyText = styled(Text, {
+const StyledList = styled(List, 
+	{baseStyle: {
+		m: "0",
+		p: 0,
+	}})
+
+const BodyListItem = styled(ListItem, {
 	baseStyle: {
-		color: 'primary.white',
-		fontSize: '12px',
-		lineHeight: '20px,',
-		fontWeight: '200',
+		color: 'primary.green',
+		fontWeight: '400',
+		letterSpacing: '3px',
+		background: 'secondary.blackSoft',
+		borderRadius: '20px',
+		textAlign: 'center',
+		p: '12px 14px',
+		mx: '8px',
+		mb: "8px",
+		display: 'inline-block',
 	},
 });
 
@@ -119,6 +133,7 @@ export const AccordionElements = {
 	Panel,
 	Body,
 	BodyHeading,
-	BodyText,
+	StyledList,
+	BodyListItem,
 	Gallery,
 };
