@@ -5,8 +5,9 @@ const Container = styled(Grid, {
 	baseStyle: {
 		gap: '16px',
 		gridTemplateColumns: { lg: '1fr 1fr', base: '1fr' },
-		py: '200px',
-		px: { md: '200px', base: '16px' },
+		pt: "0",
+		pb: '100px',
+		px: { md: '80px', base: '16px' },
 	},
 });
 
