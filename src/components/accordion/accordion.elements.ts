@@ -27,7 +27,9 @@ const Button = styled(AccordionButton, {
 		height: '100%',
 		display: 'flex',
 		justifyContent: 'space-between',
+		background: 'secondary.blackWashed',
 		_hover: {
+			background: 'secondary.blackWashed',
 			'.top-line': {
 				mb: '8px',
 				transform: 'rotate(0deg)',
@@ -67,7 +69,8 @@ const Line = styled(AnimatedBox, {
 const Panel = styled(AccordionPanel, {
 	baseStyle: {
 		display: 'grid',
-		gridTemplateColumns: '1fr 1fr',
+		gridTemplateColumns: { lg: '1fr 1fr', sm: '1fr', base: '1fr' },
+		gridTemplateRows: { lg: '1fr', sm: '1fr 1fr', base: '1fr 1fr' },
 		gridGap: '16px',
 	},
 });
@@ -75,9 +78,9 @@ const Panel = styled(AccordionPanel, {
 const Gallery = styled(Box, {
 	baseStyle: {
 		overflow: 'hidden',
-		height: '400px',
-		pos: 'relative',
 		borderRadius: '14px',
+		height: '400px',
+		width: { md: 'auto', sm: '100%', base: '100%' },
 	},
 });
 
@@ -90,28 +93,6 @@ const Body = styled(Text, {
 	},
 });
 
-const Track = styled(AnimatedBox, {
-	baseStyle: {
-		display: 'flex',
-		position: 'absolute',
-		left: '0',
-		justifyContent: 'center',
-		alignItems: 'center',
-		gap: '16px',
-		width: '200%',
-		height: '100%',
-	},
-});
-
-const GalleryItem = styled(Flex, {
-	baseStyle: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		width: '100%',
-		height: '100%',
-	},
-});
-
 export const AccordionElements = {
 	Item,
 	Button,
@@ -121,6 +102,4 @@ export const AccordionElements = {
 	Panel,
 	Body,
 	Gallery,
-	Track,
-	GalleryItem,
 };
