@@ -2,18 +2,19 @@
 import { HeroElements as el } from './hero.elements';
 import { FlexProps } from '@chakra-ui/react';
 import { SanityImageAssetDocument } from 'next-sanity';
-import { createSanityImageUrl } from '@/utils/sanity/image-builder';
 
-interface IHeroProps extends FlexProps {
-	data: {
-		headingLineOne: string;
-		headingLineTwo: string;
-		bodyText: string;
-		mainImage: SanityImageAssetDocument;
-		secondaryImage: SanityImageAssetDocument;
-    recommendationCardText: string;
-    recommendationCardButtonText: string;
-	};
+export interface IHeroData {
+	headingLineOne: string;
+	headingLineTwo: string;
+	bodyText: string;
+	mainImage: string;
+	secondaryImage: string;
+	recommendationCardText: string;
+	recommendationCardButtonText: string;
+}
+
+export interface IHeroProps extends FlexProps {
+	data: IHeroData
 }
 
 export const Hero = ({ data, ...rest }: IHeroProps) => {
@@ -23,8 +24,8 @@ export const Hero = ({ data, ...rest }: IHeroProps) => {
 		bodyText,
 		mainImage,
 		secondaryImage,
-    recommendationCardText,
-    recommendationCardButtonText,
+		recommendationCardText,
+		recommendationCardButtonText,
 	} = data;
 	return (
 		<el.Container {...rest}>
@@ -36,16 +37,16 @@ export const Hero = ({ data, ...rest }: IHeroProps) => {
 				</el.TextContainer>
 			</el.LeftColumn>
 			<el.RightColumn>
-				<el.MainPhoto
-					backgroundImage={`url(${createSanityImageUrl(mainImage).url()})`}
-				/>
+				<el.MainPhoto backgroundImage={`url(${mainImage})`} />
 
-				<el.SecondaryPhoto src={createSanityImageUrl(secondaryImage).url()} />
+				<el.SecondaryPhoto src={secondaryImage} />
 				<el.RecommendationsCard>
 					<el.RecommendationCardText>
-          {recommendationCardText}
+						{recommendationCardText}
 					</el.RecommendationCardText>
-					<el.RecommendationsButton>{recommendationCardButtonText}</el.RecommendationsButton>
+					<el.RecommendationsButton>
+						{recommendationCardButtonText}
+					</el.RecommendationsButton>
 				</el.RecommendationsCard>
 			</el.RightColumn>
 		</el.Container>

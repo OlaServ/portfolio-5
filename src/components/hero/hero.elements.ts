@@ -123,7 +123,7 @@ const RecommendationCardText = styled(Text, {
 		hyphens: 'auto',
 		p: '20px',
 		maxW: '100%',
-		color: 'secondary.blackText',
+		color: 'primary.black',
 		lineHeight: '2rem',
 		fontWeight: '200',
 	},
