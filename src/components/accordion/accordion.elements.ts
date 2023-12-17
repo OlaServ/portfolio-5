@@ -70,7 +70,7 @@ const Panel = styled(AccordionPanel, {
 	baseStyle: {
 		display: 'grid',
 		gridTemplateColumns: { lg: '1fr 1fr', sm: '1fr', base: '1fr' },
-		gridTemplateRows: { lg: '1fr', sm: '1fr 1fr', base: '1fr 1fr' },
+		gridTemplateRows: { lg: '1fr', sm: '1fr auto', base: '1fr auto' },
 		gridGap: '16px',
 	},
 });
@@ -84,11 +84,28 @@ const Gallery = styled(Box, {
 	},
 });
 
-const Body = styled(Text, {
+const Body = styled(Flex, {
+	baseStyle: {
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+	},
+});
+
+const BodyHeading = styled(Text, {
 	baseStyle: {
 		color: 'primary.gray',
 		fontSize: '16px',
-		lineHeight: '1.5rem,',
+		lineHeight: '1.5rem',
+		fontWeight: '200',
+		mb: "20px",
+	},
+});
+
+const BodyText = styled(Text, {
+	baseStyle: {
+		color: 'primary.white',
+		fontSize: '12px',
+		lineHeight: '20px,',
 		fontWeight: '200',
 	},
 });
@@ -101,5 +118,7 @@ export const AccordionElements = {
 	Line,
 	Panel,
 	Body,
+	BodyHeading,
+	BodyText,
 	Gallery,
 };

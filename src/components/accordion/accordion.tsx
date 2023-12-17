@@ -1,17 +1,21 @@
 'use client';
 import {
+	AccordionButtonProps,
 	AccordionProps,
 	Accordion as ChakraAccordion,
-	useBreakpoint,
 	useBreakpointValue,
 } from '@chakra-ui/react';
 import { AccordionElements as el } from './accordion.elements';
 import { Carousel } from '../carousel/carousel';
-import { useEffect } from 'react';
+import useScroll from '@/hooks/useScroll';
+import { useEffect, useRef, useState } from 'react';
 
 export interface IAccordionProps extends AccordionProps {
 	heading: string;
-	body: string;
+	body: {
+		heading: string;
+		text: string;
+	};
 	imageUrls: string[];
 }
 
@@ -22,14 +26,15 @@ export const Accordion = ({
 	...rest
 }: IAccordionProps) => {
 	const expandAccordion = useBreakpointValue({ lg: true, base: false });
-
 	const mobileProps = !expandAccordion ? { index: 0 } : {};
 
 	return (
 		<ChakraAccordion allowToggle {...mobileProps} {...rest}>
 			<el.Item>
 				<el.Button>
-					<el.ButtonText>{heading}</el.ButtonText>
+					<el.ButtonText transition="filter 0.3s linear">
+						{heading}
+					</el.ButtonText>
 					{expandAccordion && (
 						<el.Circle>
 							<el.Line transform="rotate(90deg)" className="top-line" />
@@ -41,7 +46,10 @@ export const Accordion = ({
 					<el.Gallery flexDirection="row">
 						<Carousel imageUrls={imageUrls} />
 					</el.Gallery>
-					<el.Body>{body}</el.Body>
+					<el.Body>
+						<el.BodyHeading>{body.heading}</el.BodyHeading>
+						<el.BodyText>{body.text}</el.BodyText>
+					</el.Body>
 				</el.Panel>
 			</el.Item>
 		</ChakraAccordion>
