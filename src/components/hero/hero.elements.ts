@@ -16,7 +16,7 @@ const Container = styled(Flex, {
 		w: '100%',
 		pl: { md: '80px', sm: '20px', base: '20px' },
 		pr: '20px',
-		pt: '20px',
+		pt: { md: '20px', base: '160px' },
 		pb: '20px',
 
 		alignItems: 'flex-start',
@@ -119,7 +119,7 @@ const RecommendationsCard = styled(Card, {
 
 const RecommendationCardText = styled(Text, {
 	baseStyle: {
-		fontSize: { md: '24px', sm: "24px", base: '18px' },
+		fontSize: { md: '24px', sm: '24px', base: '18px' },
 		hyphens: 'auto',
 		p: '20px',
 		maxW: '100%',
