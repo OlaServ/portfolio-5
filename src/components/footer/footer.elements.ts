@@ -6,9 +6,11 @@ import {
 	Heading,
 	Text,
 	chakra,
+	Icon,
 } from '@chakra-ui/react';
 import { LogoText } from '../logo-text/logo-text';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
+import Link from 'next/link';
 
 const Container = styled(Flex, {
 	baseStyle: {
@@ -17,12 +19,14 @@ const Container = styled(Flex, {
 		background: 'primary.black',
 		justifyContent: 'center',
 		alignItems: 'center',
+		flexDirection: 'column',
 	},
 });
 
 const InnerContainer = styled(Flex, {
 	baseStyle: {
 		p: '80px',
+		pb: { md: '80px', base: 0 },
 		flexDirection: { md: 'row', base: 'column' },
 		justifyContent: { md: 'space-between', base: 'center' },
 		alignItems: { md: 'flex-start', base: 'center' },
@@ -50,10 +54,9 @@ const StyledGridItem = styled(GridItem, {
 const Logo = styled(LogoText, {
 	baseStyle: {
 		fontSize: { md: '22px' },
-
 		w: { md: '30%', base: '100%' },
 		textAlign: { md: 'left', base: 'center' },
-		mb: { md: '0', base: '192px' },
+		mb: { md: '0', base: '100px' },
 	},
 });
 
@@ -74,7 +77,9 @@ const ContactItem = styled(Text, {
 		color: 'primary.white',
 		letterSpacing: '3px',
 		fontWeight: '200',
-		lineHeight: '1.5rem',
+		height: '1.5rem',
+		display: 'flex',
+		justifyContent: 'center',
 	},
 });
 
@@ -82,15 +87,73 @@ const ContactSpan = chakra('span', {
 	baseStyle: {
 		ml: '16px',
 		fontSize: '14px',
-		verticalAlign: 'middle',
 	},
 });
 
 const EmailIcon = chakra(MdOutlineAlternateEmail, {
 	baseStyle: {
-		display: 'inline',
+		display: 'inline-block',
 		height: '20px',
-		verticalAlign: 'middle',
+	},
+});
+
+const Bottom = styled(Flex, {
+	baseStyle: {
+		pb: '80px',
+		px: '80px',
+		pt: { md: '80px', base: '0px' },
+		w: '100%',
+		justifyContent: { md: 'space-between', base: 'center' },
+		alignItems: 'center',
+		flexDirection: { md: 'row', base: 'column-reverse' },
+	},
+});
+
+const Attribution = styled(Text, {
+	baseStyle: {
+		fontSize: '14px',
+		color: 'primary.white',
+		display: 'block',
+		mt: { md: '0', base: '80px' },
+	},
+});
+
+const AttributionLink = styled(Link, {
+	baseStyle: {
+		color: 'primary.green',
+		_hover: {
+			color: 'primary.white',
+			textDecor: 'none',
+		},
+	},
+});
+
+const ContactsContainer = styled(Flex, {
+	baseStyle: {
+		flexDirection: { md: 'row', base: 'column' },
+		gridColumnGap: '12px',
+		alignItems: 'center',
+	},
+});
+
+const ContactsHeading = styled(SectionHeading, {
+	baseStyle: {
+		color: '#969696',
+		my: { md: '0', base: '20px' },
+	},
+});
+
+const IconsContainer = styled(Grid, {
+	baseStyle: {
+		gridTemplateColumns: '1fr 1fr',
+		gridColumnGap: '8px',
+	},
+});
+
+const ContactIcon = styled(Icon, {
+	baseStyle: {
+		color: 'white',
+		height: '24px',
 	},
 });
 
@@ -104,4 +167,11 @@ export const FooterElements = {
 	ContactItem,
 	ContactSpan,
 	EmailIcon,
+	Bottom,
+	Attribution,
+	AttributionLink,
+	ContactIcon,
+	ContactsContainer,
+	ContactsHeading,
+	IconsContainer,
 };
