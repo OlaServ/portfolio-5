@@ -1,7 +1,7 @@
 'use client';
 import { FlexProps } from '@chakra-ui/react';
 import { NavbarElements as el } from './navbar.elements';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from './nav-link/nav-link';
 import { AnimatePresence } from 'framer-motion';
 import { NavigationType } from '@/domain/navigation';

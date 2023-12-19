@@ -1,60 +1,49 @@
-import { Flex, Text, Grid } from '@chakra-ui/react';
-import Link from 'next/link';
+'use client';
 import { basePath } from '../../../sanity.config';
 import { FooterElements as el } from './footer.elements';
-import { LogoText } from '../logo-text/logo-text';
+import { FooterLink } from './footer-link/footer-link';
+import { FlexProps } from '@chakra-ui/react';
+import { NavigationType } from '@/domain/navigation';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
 
-export const Footer = () => {
+interface IFooterProps extends FlexProps {
+	navData: NavigationType;
+}
+
+export const Footer = ({ navData, ...rest }: IFooterProps) => {
 	return (
-		<Flex
-			w="100%"
-			pt="160px"
-			background="primary.black"
-			justifyContent="center"
-			alignItems="center"
-		>
-			<Flex
-				p="80px"
-				flexDirection={{ md: 'row', base: 'column' }}
-				justifyContent={{ md: 'space-between', base: 'center' }}
-				h="100%"
-				w="100%"
-			>
-				<el.Logo  />
+		<el.Container {...rest}>
+			<el.InnerContainer>
+				<el.Logo />
 
-				<Grid
-					gridTemplateColumns={{ md: '1fr 1fr 1fr', base: '1fr' }}
-					gridTemplateRows={{ md: '1fr', base: '1fr 1fr 1fr' }}
-					gridColumnGap={{ md: '70px', base: '60px' }}
-					gridRowGap="40px"
-					w={{ md: '70%', base: '100%' }}
-				>
-					<Flex
-						direction="column"
-						textTransform="uppercase"
-						color="primary.gray"
-					>
-						<Text color="primary.white">Pages</Text>
-						<Link href="#">Home</Link>
-						<Link href="#">About</Link>
-					</Flex>
+				<el.InnerGrid>
+					<el.StyledGridItem textTransform="uppercase" color="primary.gray">
+						<el.SectionHeading>Pages</el.SectionHeading>
+						{navData[0].mainNav.items.map((item) => {
+							return (
+								<FooterLink
+									text={item.text}
+									slug={item.navigationItemUrl.internalLink.slug.current}
+									key={`${item.navigationItemUrl.internalLink.slug.current}-mobile`}
+								/>
+							);
+						})}
+					</el.StyledGridItem>
 
-					<Flex
-						direction="column"
-						textTransform="uppercase"
-						color="primary.gray"
-					>
-						<Text color="primary.white">Admin</Text>
-						<Link href={basePath}>Sanity Studio</Link>
-					</Flex>
+					<el.StyledGridItem textTransform="uppercase" color="primary.gray">
+						<el.SectionHeading>Admin</el.SectionHeading>
+						<FooterLink slug={basePath} text="Sanity Studio" />
+					</el.StyledGridItem>
 
-					<Flex flexDirection="column">
-						<Text color="primary.white" textTransform="uppercase">
-							Contact
-						</Text>
-					</Flex>
-				</Grid>
-			</Flex>
-		</Flex>
+					<el.StyledGridItem>
+						<el.SectionHeading>Contact</el.SectionHeading>
+						<el.ContactItem>
+							<el.EmailIcon />{' '}
+							<el.ContactSpan>aleksandra.serwotka@gmail.com</el.ContactSpan>
+						</el.ContactItem>
+					</el.StyledGridItem>
+				</el.InnerGrid>
+			</el.InnerContainer>
+		</el.Container>
 	);
 };
