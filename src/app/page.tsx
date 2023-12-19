@@ -1,5 +1,5 @@
 import { Hero } from '@/components/hero/hero';
-import { getMainPage } from '@/utils/sanity/queries/get-main-page';
+import { getMainPage } from '@/sanity/queries/get-main-page';
 import { AccordionsContainer } from '@/modules/accordions-container/accordions-container';
 import { Blur } from '@/components/blur/blur';
 import { MapSanityObjectsToData } from '@/utils/mapSanityObjectsToData';

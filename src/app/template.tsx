@@ -4,6 +4,7 @@ import { FlexProps, Flex } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import ThemeProvider from "@/app/theme-provider";
 import { Navigation } from "@/modules/navigation/navigation";
+import { Footer } from "@/components/footer/footer";
 
 export const RouteLayout = ({ children, ...rest }: FlexProps) => {
   const pathname = usePathname();
@@ -23,6 +24,7 @@ export const RouteLayout = ({ children, ...rest }: FlexProps) => {
       >
         <Navigation />
         {children}
+        <Footer />
       </Flex>
     </ThemeProvider>
   );
