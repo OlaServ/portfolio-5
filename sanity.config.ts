@@ -6,8 +6,10 @@ import { schemaTypes } from "@/sanity/schemas";
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
+export const basePath = "/admin";
+
 export default defineConfig({
-    basePath: "/admin",
+    basePath,
     projectId,
     dataset,
     plugins: [
