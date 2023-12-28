@@ -67,15 +67,12 @@ export default {
 			title: 'Accordions with Sliding Images',
 			type: 'array',
 			of: [
-				{
-					type: 'object',
-					fields: [
+				
 						{
 							name: 'accordion',
 							title: 'Accordion',
 							type: 'accordion',
-						},
-					],
+						
 				},
 			],
 		},

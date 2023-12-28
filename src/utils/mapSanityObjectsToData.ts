@@ -34,14 +34,13 @@ export abstract class MapSanityObjectsToData {
 		accordions: AccordionDataType[],
 	): IAccordionProps[] => {
 		return accordions.map((accordionItem) => {
-			const { accordion } = accordionItem;
 			return {
-				heading: accordion.heading,
+				heading: accordionItem.heading,
 				body: {
-					heading: accordion.body.bodyHeading,
-					listItems: accordion.body.listItems,
+					heading: accordionItem.body.bodyHeading,
+					listItems: accordionItem.body.listItems,
 				},
-				imageUrls: accordion.images.map((image: SanityImageAssetDocument) =>
+				imageUrls: accordionItem.images.map((image: SanityImageAssetDocument) =>
 					createSanityImageUrl(image).url(),
 				),
 			};
