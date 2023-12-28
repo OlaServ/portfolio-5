@@ -1,12 +1,10 @@
 import { SanityImageAssetDocument } from 'next-sanity';
 
 export type AccordionDataType = {
-	accordion: {
-		heading: string;
-		body: {
-			bodyHeading: string;
-			listItems: string[];
-		};
-		images: SanityImageAssetDocument;
+	heading: string;
+	body: {
+		bodyHeading: string;
+		listItems: string[];
 	};
+	images: SanityImageAssetDocument;
 };

@@ -47,12 +47,12 @@ export default defineConfig({
 													.title('Homepage'),
 											),
 										S.listItem()
-											.title('About Me')
+											.title('Recommendations')
 											.child(
 												S.document()
-													.schemaType('page')
-													.documentId('aboutMe')
-													.title('About Me'),
+													.schemaType('recommendationsPage')
+													.documentId('recommendationsPage')
+													.title('Recommendations'),
 											),
 									]),
 							),

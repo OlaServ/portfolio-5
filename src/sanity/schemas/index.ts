@@ -7,6 +7,9 @@ import blockContent from './objects/blockContent';
 import homepage from './documents/pages/homepage';
 import accordion from './objects/accordion';
 import contactData from './documents/contact-data';
+import person from './objects/person';
+import recommendation from './objects/recommendation';
+import recommendationsPage from './documents/pages/recommendationsPage';
 
 export const schemaTypes = [
 	siteConfig,
@@ -18,4 +21,7 @@ export const schemaTypes = [
 	homepage,
 	accordion,
 	contactData,
+	person,
+	recommendation,
+	recommendationsPage,
 ];
