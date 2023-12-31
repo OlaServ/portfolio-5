@@ -11,7 +11,7 @@ export default {
 			type: 'person',
 			title: 'Author',
 		},
-		{ name: 'company', type: 'string', title: 'Company' },
+
 		{
 			name: 'text',
 			type: 'text',

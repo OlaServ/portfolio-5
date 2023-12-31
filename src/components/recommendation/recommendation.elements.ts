@@ -61,8 +61,10 @@ const RecommendationText = styled(Text, {
 
 const AuthorContainer = styled(Flex, {
 	baseStyle: {
-		alignItems: 'center',
+		alignItems: {base: 'flex-start', md: 'center'},
 		py: '24px',
+		flexWrap: 'wrap'
+	
 	},
 });
 
@@ -71,13 +73,15 @@ const AuthorName = styled(Text, {
 		color: 'primary.green',
 		fontWeight: 'bold',
 		fontSize: '16px',
+	
 	},
 });
 
 const AuthorPosition = chakra('span', {
 	baseStyle: {
 		color: 'primary.gray',
-        whiteSpace: "pre"
+		whiteSpace: 'pre',
+	
 	},
 });
 

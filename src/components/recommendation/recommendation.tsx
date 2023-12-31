@@ -1,27 +1,53 @@
 'use client';
+import { useState } from 'react';
 import { RecommendationElements as el } from './recommendation.elements';
-import { FlexProps } from '@chakra-ui/react';
+import { StyleProps, useBreakpointValue } from '@chakra-ui/react';
+import { RecommendationDataType } from '@/domain/recommendation';
+import { useRef } from 'react';
+import {
+	useScroll,
+	useMotionValueEvent,
+	useTransform,
+	motionValue,
+} from 'framer-motion';
 
-interface IRecommendationProps extends FlexProps {}
+interface IRecommendationProps extends StyleProps, RecommendationDataType {
+	isEven: boolean;
+}
 
-export const Recommendation = ({...rest} : FlexProps) => {
+export const Recommendation = ({
+	author,
+	text,
+	isEven,
+	...rest
+}: IRecommendationProps) => {
+	const { scrollYProgress } = useScroll();
+	const [transform, setTransform] = useState('0');
+
+	const transformationBasePercentage = useBreakpointValue({base: 15, md: 50}, {fallback: 'md'})
+
+	const getTransformValue = (scrollYProgress: number) => {
+		return isEven
+			? `${Math.max(0, (1 - scrollYProgress) * (transformationBasePercentage ?? 50))}%`
+			: `${Math.max(0, scrollYProgress * (transformationBasePercentage ?? 50))}%`;
+	};
+
+	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+		const transformValue = getTransformValue(latest);
+		setTransform(transformValue);
+	});
 	return (
-		<el.Container {...rest}>
+		<el.Container transform={`translateX(${transform})`} {...rest}>
 			<el.UpperRow>
 				<el.AuthorImage />
-				<el.CompanyName>NoA Ignite</el.CompanyName>
+				<el.CompanyName>{author.company}</el.CompanyName>
 			</el.UpperRow>
 			<el.LowerRow>
-				<el.RecommendationText>
-					Despite her seniority, she’s been able to work individually on a
-					complex project, build a working relationship with the Scandinavian
-					client, and establish trust, which, all together, resulted in the
-					contract prolongation for our company.{' '}
-				</el.RecommendationText>
-                <el.AuthorContainer>
-                    <el.AuthorName>Gabriela</el.AuthorName>
-                    <el.AuthorPosition> | Manager</el.AuthorPosition>
-                </el.AuthorContainer>
+				<el.RecommendationText>{text}</el.RecommendationText>
+				<el.AuthorContainer>
+					<el.AuthorName>{author.name}</el.AuthorName>
+					<el.AuthorPosition> | {author.position}</el.AuthorPosition>
+				</el.AuthorContainer>
 			</el.LowerRow>
 		</el.Container>
 	);

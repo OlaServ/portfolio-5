@@ -1,5 +1,5 @@
 import { SanityImageAssetDocument } from 'next-sanity';
-import { AccordionDataType } from './accordion';
+import { AccordionDataType } from '../accordion';
 
 export type MainPageDataType = [
 	{
