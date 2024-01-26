@@ -7,14 +7,20 @@ export default {
 	icon: FaUser,
 	fields: [
 		{
-			name: 'personName',
+			name: 'name',
 			type: 'string',
 			title: 'Name',
 		},
 		{
-			name: 'personPosition',
+			name: 'position',
 			type: 'string',
 			title: 'Position',
+		},
+
+		{
+			name: 'company',
+			type: 'string',
+			title: 'Company',
 		},
 	],
 };

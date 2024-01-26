@@ -1,5 +1,5 @@
 import { SanityImageAssetDocument } from 'next-sanity';
-import { AccordionDataType } from './accordion';
+import { AccordionDataType } from '../accordion';
 
 export type MainPageDataType = [
 	{
@@ -10,6 +10,7 @@ export type MainPageDataType = [
 		secondaryImage: SanityImageAssetDocument;
 		recommendationCardText: string;
 		recommendationCardButtonText: string;
+		recommendationCardButtonUrl: string;
 		accordions: AccordionDataType[];
 	},
 ];

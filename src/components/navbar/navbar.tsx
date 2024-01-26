@@ -66,7 +66,7 @@ export const Navbar = ({ data, ...rest }: INavbarProps) => {
 							animationDelay={0.3}
 							animationDuration={0.3}
 						>
-							{data[0].mainNav.items.map((item) => {
+							{data[0].mainNav.items.reverse().map((item) => {
 								return (
 									<NavLink
 										text={item.text}

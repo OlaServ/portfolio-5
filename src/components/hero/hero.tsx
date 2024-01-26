@@ -1,7 +1,7 @@
 'use client';
 import { HeroElements as el } from './hero.elements';
 import { FlexProps } from '@chakra-ui/react';
-import { SanityImageAssetDocument } from 'next-sanity';
+import { useRouter } from 'next/navigation';
 
 export interface IHeroData {
 	headingLineOne: string;
@@ -11,10 +11,11 @@ export interface IHeroData {
 	secondaryImage: string;
 	recommendationCardText: string;
 	recommendationCardButtonText: string;
+	recommendationCardButtonUrl: string;
 }
 
 export interface IHeroProps extends FlexProps {
-	data: IHeroData
+	data: IHeroData;
 }
 
 export const Hero = ({ data, ...rest }: IHeroProps) => {
@@ -26,7 +27,13 @@ export const Hero = ({ data, ...rest }: IHeroProps) => {
 		secondaryImage,
 		recommendationCardText,
 		recommendationCardButtonText,
+		recommendationCardButtonUrl,
 	} = data;
+
+const { push } = useRouter();
+
+console.log(recommendationCardButtonUrl)
+
 	return (
 		<el.Container {...rest}>
 			<el.LeftColumn>
@@ -44,7 +51,7 @@ export const Hero = ({ data, ...rest }: IHeroProps) => {
 					<el.RecommendationCardText>
 						{recommendationCardText}
 					</el.RecommendationCardText>
-					<el.RecommendationsButton>
+					<el.RecommendationsButton onClick={()=>push(recommendationCardButtonUrl)}>
 						{recommendationCardButtonText}
 					</el.RecommendationsButton>
 				</el.RecommendationsCard>

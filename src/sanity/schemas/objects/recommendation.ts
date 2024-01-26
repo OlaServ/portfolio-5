@@ -11,6 +11,7 @@ export default {
 			type: 'person',
 			title: 'Author',
 		},
+
 		{
 			name: 'text',
 			type: 'text',
@@ -18,4 +19,10 @@ export default {
 			rows: 3,
 		},
 	],
+
+	preview: {
+		select: {
+			title: 'text',
+		},
+	},
 };

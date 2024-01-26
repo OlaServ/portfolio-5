@@ -1,5 +1,5 @@
 import { client } from "../client";
-import { MainPageDataType } from "@/domain/main-page";
+import { MainPageDataType } from "@/domain/pages/main-page";
 
 
 export const getMainPage = async (): Promise<MainPageDataType> => {

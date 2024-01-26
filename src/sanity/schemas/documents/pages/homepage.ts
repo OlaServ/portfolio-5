@@ -63,16 +63,20 @@ export default {
 		},
 
 		{
+			name: 'recommendationCardButtonUrl',
+			title: 'Recommendation Card Button Url',
+			type: 'string',
+		},
+
+		{
 			name: 'accordions',
 			title: 'Accordions with Sliding Images',
 			type: 'array',
 			of: [
-				
-						{
-							name: 'accordion',
-							title: 'Accordion',
-							type: 'accordion',
-						
+				{
+					name: 'accordion',
+					title: 'Accordion',
+					type: 'accordion',
 				},
 			],
 		},
@@ -81,7 +85,6 @@ export default {
 	preview: {
 		select: {
 			title: 'title',
-			media: 'mainImage',
 		},
 	},
 };

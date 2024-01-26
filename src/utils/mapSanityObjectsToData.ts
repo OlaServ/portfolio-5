@@ -2,7 +2,7 @@ import { AccordionDataType } from '@/domain/accordion';
 import { IAccordionProps } from '@/components/accordion/accordion';
 import { createSanityImageUrl } from '@/sanity/image-builder';
 import { SanityImageAssetDocument } from 'next-sanity';
-import { MainPageDataType } from '@/domain/main-page';
+import { MainPageDataType } from '@/domain/pages/main-page';
 import { IHeroData } from '@/components/hero/hero';
 
 export abstract class MapSanityObjectsToData {
@@ -17,6 +17,7 @@ export abstract class MapSanityObjectsToData {
 			secondaryImage,
 			recommendationCardText,
 			recommendationCardButtonText,
+			recommendationCardButtonUrl,
 		} = sanityDataItem;
 
 		return {
@@ -27,6 +28,7 @@ export abstract class MapSanityObjectsToData {
 			secondaryImage: createSanityImageUrl(secondaryImage).url(),
 			recommendationCardText,
 			recommendationCardButtonText,
+			recommendationCardButtonUrl,
 		};
 	};
 

@@ -29,9 +29,12 @@ export default {
 			type: 'array',
 			of: [
 				{
+					name: 'recommendation',
+					title: 'Recommendation',
 					type: 'recommendation',
 				},
 			],
+            
 		},
 	],
 
