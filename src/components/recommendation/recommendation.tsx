@@ -21,7 +21,7 @@ export const Recommendation = ({
 	const { scrollYProgress } = useScroll();
 	const [transform, setTransform] = useState('0');
 
-	const transformationBasePercentage = useBreakpointValue({base: 25, md: 50}, {fallback: 'md'})
+	const transformationBasePercentage = useBreakpointValue({base: 15, md: 50}, {fallback: 'md'})
 
 	const getTransformValue = (scrollYProgress: number) => {
 		return isEven

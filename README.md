@@ -1,5 +1,4 @@
 This project is currently under construction. 
-Live: https://olaserv-portfolio.vercel.app/
 
 ## Getting Started
 
