@@ -10,6 +10,7 @@ export type MainPageDataType = [
 		secondaryImage: SanityImageAssetDocument;
 		recommendationCardText: string;
 		recommendationCardButtonText: string;
+		recommendationCardButtonUrl: string;
 		accordions: AccordionDataType[];
 	},
 ];

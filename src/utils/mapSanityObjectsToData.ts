@@ -4,7 +4,6 @@ import { createSanityImageUrl } from '@/sanity/image-builder';
 import { SanityImageAssetDocument } from 'next-sanity';
 import { MainPageDataType } from '@/domain/pages/main-page';
 import { IHeroData } from '@/components/hero/hero';
-import { RecommendationDataType } from '@/domain/recommendation';
 
 export abstract class MapSanityObjectsToData {
 	static mapSanityHero = (data: MainPageDataType): IHeroData => {
@@ -18,6 +17,7 @@ export abstract class MapSanityObjectsToData {
 			secondaryImage,
 			recommendationCardText,
 			recommendationCardButtonText,
+			recommendationCardButtonUrl,
 		} = sanityDataItem;
 
 		return {
@@ -28,6 +28,7 @@ export abstract class MapSanityObjectsToData {
 			secondaryImage: createSanityImageUrl(secondaryImage).url(),
 			recommendationCardText,
 			recommendationCardButtonText,
+			recommendationCardButtonUrl,
 		};
 	};
 

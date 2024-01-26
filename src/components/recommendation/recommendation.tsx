@@ -3,12 +3,9 @@ import { useState } from 'react';
 import { RecommendationElements as el } from './recommendation.elements';
 import { StyleProps, useBreakpointValue } from '@chakra-ui/react';
 import { RecommendationDataType } from '@/domain/recommendation';
-import { useRef } from 'react';
 import {
 	useScroll,
 	useMotionValueEvent,
-	useTransform,
-	motionValue,
 } from 'framer-motion';
 
 interface IRecommendationProps extends StyleProps, RecommendationDataType {
